@@ -1,4 +1,4 @@
-authorized_ip_ranges = ["192.168.1.0/24", "93.86.14.0/24"]
+authorized_ip_ranges = ["192.168.1.0/24", "93.00.00.0/24"]
 resource_group_name = "rg-aks-test-001"
 resource_group_location = "West Europe"
 location            = "West Europe"
