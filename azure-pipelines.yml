@@ -38,6 +38,10 @@ stages:
         command: 'plan'
         commandOptions: '-out $(Build.SourcesDirectory)/tfplanfile'
         environmentServiceNameAzureRM: 'Pay-As-You-Go(e111a9c1-acff-455e-b1da-ad40df081436)'
+    - script: |
+       echo "Listing files in working directory:"
+       ls -la
+       displayName: 'List files in working directory'
     - task: ArchiveFiles@2
       displayName: Archive files
       inputs:
