@@ -9,7 +9,7 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - task: TerraformTaskV4@4
-      displayName: TF Init
+      displayName: TF init
       inputs:
         provider: 'azurerm'
         command: 'init'
@@ -17,7 +17,7 @@ stages:
         backendAzureRmResourceGroupName: 'rg-aks-test-001'
         backendAzureRmStorageAccountName: 'testaksstorage13'
         backendAzureRmContainerName: 'tfstatecontainer'
-        backendAzureRmKey: 'terraform.tfstate'
+        backendAzureRmKey: 'devops.terraform.tfstate'
     - task: TerraformTaskV4@4
       displayName: TF Validate
       inputs:
@@ -36,7 +36,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'plan'
-        commandOptions: '''-out $(Build.SourcesDirectory)/tfplanfile'''
+        commandOptions: '-out $(Build.SourcesDirectory)/tfplanfile'
         environmentServiceNameAzureRM: 'Pay-As-You-Go(e111a9c1-acff-455e-b1da-ad40df081436)'
     - task: ArchiveFiles@2
       displayName: Archive files
@@ -47,8 +47,7 @@ stages:
         archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
         replaceExistingArchive: true
     - task: PublishBuildArtifacts@1
-      displayName: Publish files
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: '''$(Build.BuildId)-build'''
+        ArtifactName: '$(Build.BuildId)-build'
         publishLocation: 'Container'
