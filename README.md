@@ -10,7 +10,9 @@ export TF_VAR_client_id="12345678-1234-1234-1234-123456789abc"
 export TF_VAR_client_secret="12345678-1234-1234-1234-123456789abc"
 source ~/.bashrc
 ```
-### For this to work you shouldchange the value in the terraform.tfvars to be in your public IP adress 
+### For this to work you shouldchange the value in the terraform.tfvars to be in your public IP adress range
+authorized_ip_ranges = ["192.168.1.0/24", "93.00.00.0/24"] this is the place where you should change it
+instead of 93.00.00.0/24 write your IP range
 
 
 ### We will need kubectl to connect to the kubernetes cluster so below are the steps how to install it
