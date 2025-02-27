@@ -14,7 +14,7 @@ stages:
         provider: 'azurerm'
         command: 'init'
         workingDirectory: 'aks'
-        backendServiceArm: 'Pay-As-You-Go(e111a9c1-acff-455e-b1da-ad40df081436)'
+        backendServiceArm: 'Pay-As-You-Go(your data )'
         backendAzureRmResourceGroupName: 'rg-aks-test-001'
         backendAzureRmStorageAccountName: 'testaksstorage13'
         backendAzureRmContainerName: 'tfstatecontainer'
