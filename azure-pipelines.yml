@@ -31,7 +31,7 @@ stages:
         command: 'custom'
         commandOptions: 'fmt'
         outputTo: 'console'
-        environmentServiceNameAzureRM: 'Pay-As-You-Go(e111a9c1-acff-455e-b1da-ad40df081436)'
+        environmentServiceNameAzureRM: 'Pay-As-You-Go(your data)'
 
     - task: TerraformTaskV4@4
       displayName: Terraform Plan
@@ -40,7 +40,7 @@ stages:
         command: 'plan'
         workingDirectory: 'aks'
         commandOptions: '-out $(Build.SourcesDirectory)/tfplanfile'
-        environmentServiceNameAzureRM: 'Pay-As-You-Go(e111a9c1-acff-455e-b1da-ad40df081436)'
+        environmentServiceNameAzureRM: 'Pay-As-You-Go(your data)'
 
     - task: ArchiveFiles@2
       displayName: Archive files
